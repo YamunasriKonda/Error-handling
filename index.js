@@ -6,32 +6,33 @@ app.listen(4000);
 const express = require ('express');
 const app =express();
 
-app.get('/getError', (req, res, next)){
+app.get('/getError', (req, res, next)=> {
 
     next(Error('message'));
-}
+});
 
 app.use((err, req, res, next)=> {
 
     console.log(err.stack);
-    next(err)
+    next(err);
 });
+
 app.listen(4000);
 
 const express = require('express');
 
 const app= express();
 
-app.get('/getError', (req, res, next)=>{
+app.get('/getError', (req, res, next) => {
   next(Error('message'));
 
-}
+});
 
 app.use((err, req, res, next) => {
 
     console.log(err.stack);
     next(err);
-}));
+});
 
 app.use((err, req, res, next) =>{
 
